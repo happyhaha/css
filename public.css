@@ -4,7 +4,7 @@ article {
 p, h1,h3,iframe {
 	margin-bottom: 10px;
 }
-:not(pre) > code {
+p > code {
 	color: #ef4444;
 	background-color: #fee2e2;
 }
