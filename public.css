@@ -1,14 +1,14 @@
-article {
+.html_section p {
 	font-size: 20px;
 }
-article p, article iframe, article h1, article h3 {
+.html_section p, .html_section iframe, .html_section h1, .html_section h3 {
 	margin-bottom: 20px;
 }
-p > code {
+.html_section p > code {
 	color: #ef4444;
 	background-color: #fee2e2;
 }
-iframe {
+.html_section iframe {
 	width: 100%;
 	min-height: 500px;
 }
