@@ -1,8 +1,8 @@
 article {
 	font-size: 20px;
 }
-p, h1,h3,iframe {
-	margin-bottom: 10px;
+article p, article iframe, article h1, article h3 {
+	margin-bottom: 20px;
 }
 p > code {
 	color: #ef4444;
