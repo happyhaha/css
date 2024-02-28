@@ -1,9 +1,16 @@
+article {
+	font-size: 20px;
+}
 p, h1,h3,iframe {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
+}
+:not(pre) > code {
+	color: #ef4444;
+	background-color: #fee2e2;
 }
 iframe {
-    width: 100%;
-    min-height: 500px;
+	width: 100%;
+	min-height: 500px;
 }
 
 .cdx-alert {
