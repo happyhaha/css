@@ -1,29 +1,88 @@
-<h1 id="-1-">Задание 1. Динамический вывод меню сайта из массива</h1>
-<h3 id="-">Описание задачи:</h3>
-<p>В этом уроке мы возьмем готовую верстку меню и научимся динамически формировать список пунктов меню из ассоциативного массива. Мы определим повторяющиеся элементы в коде, вынесем их в массив, создадим цикл и с его помощью сгенерируем необходимую структуру меню.</p>
-<h3 id="-">Суть задачи:</h3>
-<p>Создать ассоциативный массив с данными меню, содержащий название и ссылки на страницы. С помощью цикла <code class=”language-markup”>foreach</code>пройтись по элементам массива и вывести все пункты меню внутри заданного HTML-шаблона.</p>
-<p><strong>Чтобы структура массива была такой:</strong></p>
-<pre><code class="lang-php">$menu = [
-    [<span class="hljs-string">"title"</span> =&gt; <span class="hljs-string">"Главная"</span>, <span class="hljs-string">"url"</span> =&gt; <span class="hljs-string">"#"</span>],
-    [<span class="hljs-string">"title"</span> =&gt; <span class="hljs-string">"О нас"</span>, <span class="hljs-string">"url"</span> =&gt; <span class="hljs-string">"#"</span>],
-    <span class="hljs-comment">// Добавьте другие пункты меню здесь</span>
-];
+<p>Markdown-файлы по умолчанию не интерпретируются как HTML-страницы. Чтобы браузер отобразил их правильно, нужно преобразовать <code>.md</code> файл в HTML или использовать специальный рендеринг Markdown на стороне сервера. Вот несколько вариантов, как это сделать:</p>
+<h3 id="-1-markdown-html">Вариант 1: Преобразование Markdown в HTML</h3>
+<p>Преобразуйте файл <code>lesson.md</code> в HTML перед загрузкой на GitHub Pages. Для этого:</p>
+<ol>
+<li>Откройте Markdown-файл в любом текстовом редакторе или IDE.</li>
+<li>Используйте онлайн-конвертер, например, <a href="https://markdowntohtml.com/">Markdown to HTML</a> или <a href="https://dillinger.io/">Dillinger</a>.</li>
+<li>Получив HTML-код, сохраните его как <code>lesson.html</code>.</li>
+<li>Загрузите этот HTML-файл на GitHub Pages.</li>
+<li>Теперь откройте ссылку на <code>lesson.html</code>, и вы увидите правильно отформатированный контент.</li>
+</ol>
+<h3 id="-2-github-pages-markdown">Вариант 2: Использование GitHub Pages с поддержкой Markdown</h3>
+<p>Если вы хотите, чтобы <code>.md</code> файлы автоматически рендерились в HTML, настройте GitHub Pages так, чтобы он интерпретировал Markdown:</p>
+<ol>
+<li><p><strong>Создайте файл <code>_config.yml</code></strong> в корне вашего репозитория и добавьте в него следующую строку:</p>
+<pre><code class="lang-yaml"><span class="hljs-symbol">markdown:</span> kramdown
+<span class="hljs-symbol">theme:</span> minima
 </code></pre>
-<p><strong>Что ссылки будут неактивны.</strong> </p>
-<p>Ссылки являются заглушками (в виде <code class="language-markup">&quot;#&quot;</code>), так как это демонстрационное задание по работе с массивами и циклами.</p>
-<h3 id="-">Пошаговое объяснение логики решения:</h3>
-<p><strong>Проанализировать верстку меню:</strong></p>
+</li>
+<li><p><strong>Переименуйте <code>lesson.md</code> в <code>index.md</code>.</strong></p>
+</li>
+<li><p><strong>Создайте структуру сайта</strong>: добавьте папку, например, <code>lessons</code>, и разместите в ней ваш <code>.md</code> файл.</p>
+</li>
+<li><p>После этого зайдите в настройки репозитория и включите GitHub Pages:</p>
 <ul>
-<li>Структура HTML-кода меню состоит из списка <code>&lt;ul&gt;</code>, содержащего элементы <code>&lt;li&gt;</code> с вложенными ссылками <code>&lt;a&gt;</code>.</li>
-<li>Все пункты располагаются внутри списка <code>&lt;ul&gt;</code>, а список — внутри блока <code>&lt;div&gt;</code>.</li>
-<li><strong>Выделить повторяющиеся элементы:</strong><ul>
-<li>Каждый пункт меню имеет одинаковую структуру: тег <code>&lt;li&gt;</code> с вложенным тегом <code>&lt;a&gt;</code>.</li>
-<li>Отличаются элементы только текстом и ссылками, что и будем передавать из массива.</li>
+<li>В разделе <strong>GitHub Pages</strong> выберите ветку <code>main</code> или <code>gh-pages</code>.</li>
+<li>Убедитесь, что корневая папка настроена правильно (например, <code>/root</code> или <code>/docs</code>).</li>
 </ul>
 </li>
-<li><strong>Создать ассоциативный массив:</strong><ul>
-<li>Задайте массив, в котором каждый пункт — это подмассив с двумя параметрами: <code>&quot;title&quot;</code> (название пункта меню) и <code>&quot;url&quot;</code> (ссылка).</li>
-</ul>
+</ol>
+<p>Теперь, когда вы будете переходить на ссылку <code>https://username.github.io/repository/lessons/index.md</code>, содержимое Markdown будет рендериться как HTML.</p>
+<h3 id="-3-jekyll-">Вариант 3: Использование статического генератора сайтов (например, Jekyll)</h3>
+<p>GitHub Pages поддерживает Jekyll, что позволяет создавать полноценные сайты с автоматическим преобразованием Markdown в HTML. Если у вас есть несколько уроков, это хороший вариант:</p>
+<ol>
+<li><p>В корневой папке репозитория создайте файл <code>_config.yml</code> с минимальной конфигурацией:</p>
+<pre><code class="lang-yaml"><span class="hljs-symbol">markdown:</span> kramdown
+<span class="hljs-symbol">theme:</span> minima
+</code></pre>
 </li>
-</ul>
+<li><p>Добавьте файл <code>index.md</code> с вашим Markdown-контентом.</p>
+</li>
+<li>GitHub автоматически отрендерит ваш Markdown как HTML.</li>
+</ol>
+<p><strong>Пример структуры проекта:</strong></p>
+<pre><code>/root
+  <span class="hljs-string">|_ index.md</span>
+  <span class="hljs-string">|_ _config.yml</span>
+</code></pre><h3 id="-4-html-markdown">Вариант 4: Ручное добавление разметки HTML в Markdown</h3>
+<p>Если вам нужно добавить интерактивные элементы или стили, то можно встроить HTML прямо в Markdown:</p>
+<p>Пример:</p>
+<pre><code class="lang-markdown"><span class="hljs-meta"># Заголовок урока</span>
+
+<span class="hljs-params">&lt;p&gt;</span>Текст с применением <span class="hljs-params">&lt;strong&gt;</span>HTML-тегов<span class="hljs-params">&lt;/strong&gt;</span><span class="hljs-params">&lt;/p&gt;</span>
+
+<span class="hljs-params">&lt;pre&gt;</span><span class="hljs-params">&lt;code&gt;</span>
+PHP код или другой пример
+<span class="hljs-params">&lt;/code&gt;</span><span class="hljs-params">&lt;/pre&gt;</span>
+</code></pre>
+<p>После этого такой файл будет корректно отображаться, когда вы его рендерите через GitHub Pages или в статическом сайте.</p>
+<h3 id="-5-markdown">Вариант 5: Использование сторонних рендеров Markdown</h3>
+<p>Можете использовать JavaScript-библиотеки, такие как <strong>Showdown.js</strong> или <strong>marked.js</strong>, для преобразования Markdown в HTML прямо на странице. Это требует небольшой доработки HTML-файла, например:</p>
+<ol>
+<li>Создайте HTML-файл с базовой структурой:</li>
+</ol>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Lesson<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/marked/marked.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"content"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+        fetch(<span class="hljs-string">'lesson.md'</span>)
+            .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.text())
+            .then(<span class="hljs-function"><span class="hljs-params">text</span> =&gt;</span> {
+                <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'content'</span>).innerHTML = marked(text);
+            });
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<ol>
+<li>Теперь загрузите этот HTML-файл и <code>lesson.md</code> в один каталог на GitHub Pages. Открыв HTML-файл, вы увидите правильно отформатированный контент.</li>
+</ol>
+<h3 id="-">Рекомендация</h3>
+<p>Для простоты лучше всего преобразовать <code>.md</code> в <code>.html</code> и загружать уже готовый HTML-файл. Это позволит вам минимизировать проблемы с рендерингом и сосредоточиться на контенте.</p>
